@@ -85,7 +85,7 @@ int End(char *str)
 int Errors(char *str, int Figures)
 {
     printf("Figure %d:\n", Figures);
-    if (checkFigure(str))
+    if (Figure(str))
     {
         printf("%s", str);
         printf("Incorrect input of figure name\n\n");
