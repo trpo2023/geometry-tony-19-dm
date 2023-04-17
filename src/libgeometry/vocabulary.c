@@ -7,7 +7,8 @@ int Figure(char *str)
 {
     int ret = 1;
     char rec[SIZE];
-    for (int i = 0; i < strlen(str); i++)
+    int u = strlen(str);
+    for (int i = 0; i < u; i++)
     {
         if (str[i] != '(')
         {
