@@ -6,7 +6,8 @@ int Argument(char *str)
 {
     int ret = 0;
     int count = 0;
-    for (int i = 7; str[i] != ',' && i < strlen(str); i++)
+    int u = strlen(str);
+    for (int i = 7; str[i] != ',' && i < u; i++)
     {
         if ((str[i] != '.' && str[i] != ' ') && !(str[i] >= 48 && str[i] <= 57))
         {
@@ -28,16 +29,16 @@ int Argument(char *str)
     }
 
     int index = 0;
-    for (int i = 0; i != strlen(str); i++)
+    for (int i = 0; i != u; i++)
     {
         if (str[i] == ',')
         {
             index = i + 1;
-            i = strlen(str) - 1;
+            i = u - 1;
         }
     }
 
-    for (; str[index] != ')' && index < strlen(str); index++)
+    for (; str[index] != ')' && index < u; index++)
     {
         if ((str[index] != '.' && str[index] != ' ') && !(str[index] >= 48 && str[index] <= 57))
         {
