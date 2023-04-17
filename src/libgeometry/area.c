@@ -13,7 +13,8 @@ float Area(char *str)
         ;
     i++;
     int index = 0;
-    for (; i < strlen(str); i++)
+    int u = strlen(str);
+    for (; i < u; i++)
     {
         temp[index++] = str[i];
         temp = (char *)realloc(temp, (index + 1) * sizeof(char));
