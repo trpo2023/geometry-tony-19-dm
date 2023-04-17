@@ -1,3 +1,3 @@
 #pragma once
 
-float Area(char *str);
+float Area(char *);
