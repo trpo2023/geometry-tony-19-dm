@@ -64,12 +64,13 @@ int End(char *str)
 {
     int ret = 1, firstBracket = 0;
     int endingSymbol;
+    int u = strlen(str);
     if (str[strlen(str) - 1] == '\n')
         endingSymbol = strlen(str) - 2;
     else
         endingSymbol = strlen(str) - 1;
 
-    for (int i = 0; i < strlen(str); i++)
+    for (int i = 0; i < u; i++)
     {
         if (str[i] == ')')
         {
