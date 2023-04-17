@@ -1,3 +1,4 @@
+#pragma once
 
 int Argument(char *str);
 int End(char *str);
