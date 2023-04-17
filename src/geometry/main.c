@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <libgeometry/vocabulary.h>
-#include <libgeometry/chekarg.h>
+#include <libgeometry/checkarg.h>
 #include <libgeometry/perimetr.h>
 #include <libgeometry/area.h>
 
