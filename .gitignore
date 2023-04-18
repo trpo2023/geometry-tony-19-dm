@@ -1,7 +1,5 @@
-*.[oa]
-*.txt
-*swp
-*~
+*.a
+*.o
+*.d
 main
 input.txt
-helloworld.c
