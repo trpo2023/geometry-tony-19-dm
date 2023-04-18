@@ -1,13 +1,15 @@
 #include <stdio.h>
 #include <string.h>
-#include <libgeometry/checkarg.h>
 
+#include <libgeometry/area.h>
+#include <libgeometry/vocabulary.h>
+#include <libgeometry/checkarg.h>
+#include <libgeometry/perimetr.h>
 int Argument(char *str)
 {
     int ret = 0;
     int count = 0;
-    int u = strlen(str);
-    for (int i = 7; str[i] != ',' && i < u; i++)
+    for (size_t i = 7; str[i] != ',' && i < strlen(str); i++)
     {
         if ((str[i] != '.' && str[i] != ' ') && !(str[i] >= 48 && str[i] <= 57))
         {
@@ -26,16 +28,16 @@ int Argument(char *str)
         ret++;
         return ret;
     }
-    int index = 0;
-    for (int i = 0; i != u; i++)
+    size_t index = 0;
+    for (size_t i = 0; i != strlen(str); i++)
     {
         if (str[i] == ',')
         {
             index = i + 1;
-            i = u - 1;
+            i = strlen(str) - 1;
         }
     }
-    for (; str[index] != ')' && index < u; index++)
+    for (; str[index] != ')' && index < strlen(str); index++)
     {
         if ((str[index] != '.' && str[index] != ' ') && !(str[index] >= 48 && str[index] <= 57))
         {
@@ -59,12 +61,11 @@ int End(char *str)
 {
     int ret = 1, firstBracket = 0;
     int endingSymbol;
-    int u = strlen(str);
-    if (str[u - 1] == '\n')
-        endingSymbol = u - 2;
+    if (str[strlen(str) - 1] == '\n')
+        endingSymbol = strlen(str) - 2;
     else
-        endingSymbol = u - 1;
-    for (int i = 0; i < u; i++)
+        endingSymbol = strlen(str) - 1;
+    for (size_t i = 0; i < strlen(str); i++)
     {
         if (str[i] == ')')
         {
@@ -87,8 +88,7 @@ int Errors(char *str, int countFigures)
     else if (End(str))
         printf("Wrong final symbol\n\n");
     else
-        printf("%s\n", str);
-    printf("%s\n\tarea = %f\n\tperimetr = %f", str, Area(str), Perimetr(str));
+        printf("\n%s\n\tarea = %f\n\tperimetr = %f\n", str, Area(str), Perimetr(str));
 
     return 0;
 }
