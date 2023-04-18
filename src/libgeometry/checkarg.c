@@ -20,14 +20,12 @@ int Argument(char *str)
         if (str[i] == '.' && str[i + 1] == ')')
             count += 2;
     }
-
     if (count + 1 != 2)
     {
         printf("Figure coordinates entered incorrectly\n\n");
         ret++;
         return ret;
     }
-
     int index = 0;
     for (int i = 0; i != u; i++)
     {
@@ -37,7 +35,6 @@ int Argument(char *str)
             i = u - 1;
         }
     }
-
     for (; str[index] != ')' && index < u; index++)
     {
         if ((str[index] != '.' && str[index] != ' ') && !(str[index] >= 48 && str[index] <= 57))
@@ -51,7 +48,6 @@ int Argument(char *str)
         if (str[index] == '.' && str[index + 1] == ' ')
             count += 2;
     }
-
     if (count != 1)
     {
         printf("Figure radius entered incorrectly\n\n");
@@ -59,17 +55,15 @@ int Argument(char *str)
     }
     return ret;
 }
-
 int End(char *str)
 {
     int ret = 1, firstBracket = 0;
     int endingSymbol;
     int u = strlen(str);
-    if (str[strlen(str) - 1] == '\n')
-        endingSymbol = strlen(str) - 2;
+    if (str[u - 1] == '\n')
+        endingSymbol = u - 2;
     else
-        endingSymbol = strlen(str) - 1;
-
+        endingSymbol = u - 1;
     for (int i = 0; i < u; i++)
     {
         if (str[i] == ')')
@@ -78,33 +72,23 @@ int End(char *str)
             break;
         }
     }
-
     if (firstBracket == endingSymbol)
         ret = 0;
     return ret;
 }
-
-int Errors(char *str, int Figures)
+int Errors(char *str, int countFigures)
 {
-    printf("Figure %d:\n", Figures);
+    printf("Figure %d:\n", countFigures);
+    printf("%s", str);
     if (Figure(str))
-    {
-        printf("%s", str);
         printf("Incorrect input of figure name\n\n");
-    }
-
     else if (Argument(str))
-    {
         return 0;
-    }
-
     else if (End(str))
-    {
-        printf("%s", str);
         printf("Wrong final symbol\n\n");
-    }
-
     else
-        printf("%s\n\tarea = %f\n\tperimetr = %f", str, Area(str), Perimetr(str));
+        printf("%s\n", str);
+    printf("%s\n\tarea = %f\n\tperimetr = %f", str, Area(str), Perimetr(str));
+
     return 0;
 }

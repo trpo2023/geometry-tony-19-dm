@@ -11,14 +11,9 @@ int Figure(char *str)
     for (int i = 0; i < u; i++)
     {
         if (str[i] != '(')
-        {
             rec[i] = str[i];
-        }
-
         else
-        {
             break;
-        }
     }
     char figure[] = "circle";
     if (strcmp(rec, figure) == 0)
