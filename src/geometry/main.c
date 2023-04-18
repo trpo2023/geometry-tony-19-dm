@@ -11,6 +11,11 @@ int main()
 {
     FILE *file;
     file = fopen("testdata.txt", "r");
+    if (file == NULL)
+    {
+        printf("Error of oppening file!");
+        return 1;
+    }
     char str1[SIZE];
     int countFigures = 0;
     while (fgets(str1, SIZE, file))
@@ -18,6 +23,8 @@ int main()
         countFigures++;
         Errors(str1, countFigures);
     }
+
     fclose(file);
+    printf("\n");
     return 0;
 }
