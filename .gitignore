@@ -4,4 +4,7 @@
 main
 input.txt
 *.[oa]
-
+*~
+*swp
+*#
+bin/
