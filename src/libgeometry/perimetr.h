@@ -1,3 +1,3 @@
 #pragma once
 
-float Perimetr(char *str);
+float Perimetr(char* str);
