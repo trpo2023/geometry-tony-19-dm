@@ -1,3 +1,3 @@
 #pragma once
 
-int Figure(char* str);
+int checkFigure(char *);
