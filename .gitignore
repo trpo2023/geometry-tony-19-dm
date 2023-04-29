@@ -1,0 +1,10 @@
+*.a
+*.o
+*.d
+main
+input.txt
+*.[oa]
+*~
+*swp
+*#
+bin/
